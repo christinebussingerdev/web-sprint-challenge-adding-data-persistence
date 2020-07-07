@@ -8,29 +8,32 @@ module.exports = {
   remove
 }
 
-function find() {
+function find(projectId) {
   return db('task')
+  .where('project_id', projectId)
 }
 
 // MIGHT NEED TO BE TWEAKED
-function findById(id) {
+function findById(projectId, id) {
   return db('task')
+  .where('project_id', projectId)
   .where('id', id)
   .first()
 }
 
-function add(projectId, newTask) {
+function add(newTask) {
   return db('task')
   .insert(newTask)
 }
 
-function update(id, newTask) {
+function update(projectId, id, newTask) {
   return db('task')
+  .where('project_id', projectId)
   .where('id', id)
   .update(newTask)
 }
 
-function remove(id) {
+function remove(projectId, id) {
   return db('task')
   .where('id', id)
   .del()
