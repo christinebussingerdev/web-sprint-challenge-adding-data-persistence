@@ -4,7 +4,7 @@ const cors = require('CORS')
 const server = express()
 
 // import routers
-const projectRouter = require('./routes/project-router')
+const projectRouter = require('./routes/project/project-router')
 
 server.use(express.json())
 server.use(cors())
